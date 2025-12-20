@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rone | Portfolio & Resume</title>
+    <meta name="description" content="Professional portfolio and resume of Rone.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Rn.</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="greeting">Hello, I'm</span>
+                    <h1 class="name gradient-text">Rone</h1>
+                    <h2 class="title">Full Stack Developer</h2>
+                    <p class="bio">Building digital experiences with a focus on motion, aesthetics, and performance.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn primary-btn">View Work</a>
+                        <a href="#" class="btn secondary-btn"><i class="fas fa-download"></i> Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-content card">
+                            <h3>Senior Developer</h3>
+                            <h4>Tech Solutions Inc.</h4>
+                            <p>Leading frontend development for enterprise applications. Implemented new design system and improved performance by 40%.</p>
+                            <div class="tags">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <div class="timeline-content card">
+                            <h3>Web Developer</h3>
+                            <h4>Creative Agency</h4>
+                            <p>Developed award-winning marketing websites for global brands. Collaborated with designers to implement complex animations.</p>
+                            <div class="tags">
+                                <span>Vue.js</span>
+                                <span>GSAP</span>
+                                <span>WebGL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills & Tech</h2>
+                <div class="skills-grid">
+                    <div class="skill-category card">
+                        <h3>Frontend</h3>
+                        <div class="skill-list">
+                            <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
+                            <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                            <div class="skill-item"><i class="fab fa-react"></i> React</div>
+                            <div class="skill-item"><i class="fab fa-sass"></i> SCSS</div>
+                        </div>
+                    </div>
+                    <div class="skill-category card">
+                        <h3>Backend</h3>
+                        <div class="skill-list">
+                            <div class="skill-item"><i class="fab fa-node"></i> Node.js</div>
+                            <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                            <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
+                            <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card card">
+                        <div class="project-image">
+                            <div class="overlay"></div>
+                            <!-- Placeholder for project image -->
+                            <div class="placeholder-img">Project 1</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>E-Commerce Platform</h3>
+                            <p>A modern shopping experience with real-time inventory and AI recommendations.</p>
+                            <div class="project-links">
+                                <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="icon-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card card">
+                        <div class="project-image">
+                            <div class="overlay"></div>
+                            <!-- Placeholder for project image -->
+                            <div class="placeholder-img">Project 2</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Task Management App</h3>
+                            <p>Productivity tool for remote teams with real-time collaboration features.</p>
+                            <div class="project-links">
+                                <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="icon-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content card">
+                    <p>I'm currently available for freelance work or full-time opportunities.</p>
+                    <a href="mailto:hello@rone.dev" class="email-link gradient-text">hello@rone.dev</a>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rone. Built with passion.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
