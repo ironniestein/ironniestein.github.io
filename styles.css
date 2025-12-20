@@ -694,6 +694,10 @@ section {
     .timeline-item {
         padding-left: 1.5rem;
     }
+
+    .email-link {
+        font-size: 1rem;
+    }
 }
 
 /* More Granular Mobile Adjustments */
