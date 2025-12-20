@@ -221,9 +221,23 @@ section {
     align-items: center;
     padding-top: var(--header-height);
     position: relative;
+    overflow: hidden; /* Ensure canvas doesn't overflow */
+}
+
+#geometric-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+    opacity: 0.6; /* Subtle effect */
+    pointer-events: none; /* Let clicks pass through, JS handles mouse tracking via window */
 }
 
 .hero-container {
+    position: relative;
+    z-index: 1; /* Content above canvas */
     display: flex;
     align-items: center;
     justify-content: space-between;
