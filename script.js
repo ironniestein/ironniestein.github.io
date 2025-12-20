@@ -33,6 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Mobile Menu Toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Animate icon
+            const menuIcon = mobileBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const menuIcon = mobileBtn.querySelector('i');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    }
+
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -110,8 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle scroll to update bounds if necessary, or just keep it simple
         // For hero section, usually fixed at top, but let's stick to mouse move relative to viewport/canvas
 
-        // Math symbols and numbers
-        const mathSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'π', '∑', '∫', '√', '∞', '+', '-', '×', '÷', '=', '≈', '∂', '∆'];
+        // Mixed Jargon: Law, Econ, Chem Eng, Math/Geometry
+        const jargonTerms = [
+            // Math/Geo
+            'π', '∑', '∫', '∞', '∆', '√', '≈', '∂',
+            // Law
+            'Tort', 'M&A', 'IPR', 'SHA', 'Act', 'Writ', 'Plea', 'Clause',
+            // Econ
+            'GDP', 'ROI', 'Tax', 'Bond', 'Risk', 'Cost',
+            // Chem Eng
+            'pH', 'H₂O', 'Mole', 'Flux', 'Heat', 'Rxn', 'Polymer'
+        ];
 
         class Particle {
             constructor() {
@@ -123,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.y = Math.random() * height;
                 this.baseX = this.x;
                 this.baseY = this.y;
-                this.size = Math.random() * 10 + 8; // Slightly larger for text readability
+                this.size = Math.random() * 8 + 6; // Standardize size for text
                 this.speedX = Math.random() * 2 - 1;
                 this.speedY = Math.random() * 2 - 1;
                 this.angle = Math.random() * 6.2;
@@ -132,7 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.type = Math.floor(Math.random() * 5); 
                 
                 if (this.type === 3) {
-                    this.text = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
+                    this.text = jargonTerms[Math.floor(Math.random() * jargonTerms.length)];
+                    // Make text slightly larger/distinct
+                    this.size = Math.random() * 10 + 10;
                 }
 
                 this.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-primary') || '#DC143C';
@@ -145,10 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 ctx.save();
                 ctx.translate(this.x, this.y);
-                ctx.rotate(this.angle);
+                if (this.type !== 3) { // Rotate shapes, keep text mostly upright or slight float
+                     ctx.rotate(this.angle);
+                } else {
+                     ctx.rotate(this.angle * 0.2); // Slower rotation for text
+                }
 
-                if (this.type === 3) { // Text (Math/Number)
-                    ctx.font = `${this.size + 4}px monospace`; // Monospace for math look
+                if (this.type === 3) { // Text
+                    ctx.font = `${this.size}px monospace`; 
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
                     ctx.fillText(this.text, 0, 0);

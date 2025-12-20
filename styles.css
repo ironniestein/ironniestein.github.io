@@ -614,11 +614,16 @@ section {
         padding: 0 1.5rem;
     }
     
+    #geometric-bg {
+        display: none;
+    }
+
     .hero-container {
-        flex-direction: column-reverse; /* Text on top, image below? Or standard column. Usually text first on mobile. Let's do column-reverse if we want image on top, but normally text is key. Let's stick to column for now, but often mobile puts image first. Actually, standard flow is best: content then image. But for personal portfolio, face is nice. Let's do flex-direction: column-reverse so image is above text? No, let's keep text above. Wait, HTML order is Content -> Image. So default is column. */
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .hero-content {
@@ -644,7 +649,31 @@ section {
     .nav-links {
         display: none;
     }
-    
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--card-bg); /* Check if card-bg is opaque enough, heavily blurry */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        align-items: center;
+        gap: 1.5rem;
+        animation: slideDown 0.3s ease;
+        z-index: 1000;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     .mobile-menu-btn {
         display: block;
     }
@@ -659,5 +688,20 @@ section {
     
     .timeline-item {
         padding-left: 1.5rem;
+    }
+}
+
+/* More Granular Mobile Adjustments */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force single column on very small screens */
+    }
+    
+    .hero .name {
+        font-size: 2.5rem;
+    }
+
+    .contact-title {
+        font-size: 2rem;
     }
 }
