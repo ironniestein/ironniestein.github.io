@@ -6,25 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check local storage or system preference
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.setAttribute('data-theme', 'light');
+    // Default to light if nothing is saved
+    const currentTheme = savedTheme || 'light';
+    
+    if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
     }
 
     themeToggle.addEventListener('click', () => {
-        const isLight = body.getAttribute('data-theme') === 'light';
+        const current = body.getAttribute('data-theme');
+        // If attribute is missing, it's light mode (default)
+        const isLight = !current || current === 'light';
         
         if (isLight) {
             body.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
         } else {
             body.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
         }
     });
 

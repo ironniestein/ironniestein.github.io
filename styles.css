@@ -1,15 +1,15 @@
 /* CSS Variables & Reset */
 :root {
-    /* Colors */
-    --bg-color: #0a0a0a;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --card-hover: rgba(255, 255, 255, 0.07);
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #8b5cf6;
-    --gradient-main: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    --border-color: rgba(255, 255, 255, 0.1);
+    /* Colors - Professional Light Theme */
+    --bg-color: #f8fafc; /* Slate 50 */
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --card-hover: rgba(255, 255, 255, 0.85);
+    --text-primary: #1e293b; /* Slate 800 */
+    --text-secondary: #64748b; /* Slate 500 */
+    --accent-primary: #DC143C; /* Crimson Red */
+    --accent-secondary: #7c3aed; /* Violet */
+    --gradient-main: linear-gradient(135deg, #DC143C 0%, #7c3aed 100%);
+    --border-color: rgba(226, 232, 240, 0.8);
     
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
@@ -18,15 +18,34 @@
     /* Spacing */
     --container-width: 1000px;
     --header-height: 80px;
+    
+    /* Effects */
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-[data-theme="light"] {
-    --bg-color: #f8fafc;
-    --card-bg: rgba(0, 0, 0, 0.03);
-    --card-hover: rgba(0, 0, 0, 0.05);
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --border-color: rgba(0, 0, 0, 0.1);
+/* Optional Dark Mode if toggle is used */
+/* Black and White Theme */
+[data-theme="dark"] {
+    /* Monochrome Colors */
+    --bg-color: #000000;
+    --card-bg: rgba(20, 20, 20, 0.8);
+    --card-hover: rgba(40, 40, 40, 0.9);
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3; /* Neutral 400 */
+    --accent-primary: #ffffff;
+    --accent-secondary: #d4d4d4; /* Neutral 300 */
+    
+    /* Monochrome Gradient */
+    --gradient-main: linear-gradient(135deg, #ffffff 0%, #666666 100%);
+    
+    /* Borders & Shadows */
+    --border-color: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
+    
+    /* Adjust specific elements for better contrast */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -67,7 +86,7 @@ body {
 .orb-1 {
     width: 400px;
     height: 400px;
-    background: var(--accent-primary);
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.2) 0%, rgba(220, 20, 60, 0) 70%);
     top: -100px;
     left: -100px;
     animation: float 20s infinite alternate;
@@ -76,7 +95,7 @@ body {
 .orb-2 {
     width: 300px;
     height: 300px;
-    background: var(--accent-secondary);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0) 70%);
     bottom: -50px;
     right: -50px;
     animation: float 25s infinite alternate-reverse;
@@ -261,21 +280,26 @@ section {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(220, 20, 60, 0.3);
 }
 
 /* Base Card Style */
+/* Base Card Style */
 .card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: var(--glass-border);
     border-radius: 16px;
     padding: 2rem;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--glass-shadow);
 }
 
 .card:hover {
     background: var(--card-hover);
     transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Experience */
@@ -326,7 +350,7 @@ section {
 
 .tags span {
     font-size: 0.8rem;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(220, 20, 60, 0.1);
     color: var(--accent-primary);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
