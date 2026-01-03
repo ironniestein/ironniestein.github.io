@@ -326,7 +326,7 @@ section {
 .hero .bio {
     max-width: 500px;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.75rem;
     font-size: 1.1rem;
 }
 
